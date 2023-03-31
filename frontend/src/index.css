@@ -1,0 +1,375 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --logo: hsl(0, 0%, 98%);
+    --light-bg-overlay: hsl(220, 98%, 61%);
+    --circle-border: hsl(234, 11%, 52%);
+    --list-text-light: hsl(235, 19%, 35%);
+    --body-bg-light: hsl(236, 33%, 92%);
+
+    --fs-body: 0.8125rem;
+    --fs-logo: 1.75rem;
+    --fs-filter: 0.75rem;
+}
+
+body {
+    font-size: var(--fs-body);
+    font-family: "Josefin Sans", sans-serif;
+    background: url(./images/bg.png) no-repeat;
+    background-size: cover;
+}
+
+.container {
+    min-height: 100vh;
+}
+
+.sub-con {
+    backdrop-filter: blur(10px);
+    background-color: #0000000a;
+    height: 50%;
+    width: 90%;
+    margin: 50px auto;
+    padding-bottom: 20px;
+}
+
+header {
+    background-size: 100% 100%;
+    padding-top: 65px;
+    padding-bottom: 0px;
+    height: 226px;
+
+}
+
+header>*,
+main>* {
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.header-nav .logo {
+    color: var(--logo);
+    font-size: var(--fs-logo);
+    letter-spacing: 0.5rem;
+}
+
+.header-nav .toggle-btn {
+    background: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.toggle-btn img {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+main {
+    min-height: calc(100vh - 350px);
+    margin-top: -5.75rem;
+    padding: 0 1.5rem;
+}
+
+main .form {
+    position: relative;
+}
+
+.form .add-btn {
+    position: absolute;
+    left: 1.5rem;
+    top: 0.75rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    cursor: pointer;
+    border: none;
+}
+
+.form__input {
+    width: 100%;
+    height: 3rem;
+    color: var(--body-bg-dark);
+    background: var(--logo);
+    font-size: var(--fs-body);
+    font-family: "Josefin Sans", sans-serif;
+    padding-left: 3.5rem;
+    outline: none;
+    border: none;
+    -webkit-border-radius: 0.3rem;
+    -moz-border-radius: 0.3rem;
+    -ms-border-radius: 0.3rem;
+    -o-border-radius: 0.3rem;
+    border-radius: 0.3rem;
+    caret-color: var(--light-bg-overlay);
+}
+
+
+main .list-container {
+    margin-top: 1.25rem;
+}
+
+.list-container ul {
+    list-style-type: none;
+}
+
+.list-container ul li,
+.list-container .status,
+.list-container .filter-small {
+    min-height: 3rem;
+    color: var(--list-text-light);
+    background: var(--logo);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1.5rem 0.75rem 1.75rem;
+    position: relative;
+}
+
+.list-container ul li {
+    cursor: pointer;
+    margin-bottom: 5px;
+    border: none;
+    border-radius: 7px;
+}
+
+.no-todo {
+    justify-content: center;
+    padding: 0.75rem 1rem;
+}
+
+
+.list-container ul li:nth-child(even) {
+    background: #f4fcf4;
+}
+
+input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+input[type="checkbox"]::before {
+    position: absolute;
+    content: "";
+    width: 1.125rem;
+    height: 1.125rem;
+    background: var(--logo);
+    border: 1px solid var(--circle-border);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
+input[type="checkbox"]:checked::before {
+    border: linear-gradient(to right,
+            var(--dark-bg-overlay-1),
+            var(--dark-bg-overlay-2));
+    background: linear-gradient(to right,
+            var(--dark-bg-overlay-1),
+            var(--dark-bg-overlay-2));
+}
+
+
+input[type="checkbox"]:checked::after {
+    content: "";
+    width: 0.6rem;
+    height: 0.6rem;
+    background-position: center;
+    background-size: contain;
+    z-index: 1;
+}
+
+li span {
+    width: 100%;
+    padding-left: 1rem;
+}
+
+li .completed {
+    color: #00000069;
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+}
+
+li .delete-btn {
+    width: 1rem;
+    height: 1rem;
+    background: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-btn img {
+    width: 100%;
+}
+
+.list-container .status {
+    color: var(--circle-border) !important;
+    margin-bottom: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    border-bottom: none;
+    border-bottom-left-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+    box-shadow: 0 1.5rem 1.5rem 0 rgba(0, 0, 0, 0.05);
+}
+
+.status span {
+    font-size: var(--fs-filter);
+}
+
+.status .clear-btn {
+    color: var(--circle-border);
+    background: transparent;
+    font-size: var(--fs-filter);
+    font-family: "Josefin Sans", sans-serif;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.clear-btn:hover,
+.filter-small button:hover,
+.filter-large button:hover {
+    color: var(--list-text-light);
+}
+
+.list-container .filter-small {
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.75rem 1.5rem;
+}
+
+.filter-small button {
+    color: var(--circle-border);
+    background: transparent;
+    font-size: var(--fs-filter);
+    font-family: "Josefin Sans", sans-serif;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.active-filter {
+    color: var(--light-bg-overlay) !important;
+}
+
+footer {
+    width: 100%;
+    color: var(--circle-border);
+    font-size: var(--fs-filter);
+    text-align: center;
+    padding: 3rem 0 1.5rem 0;
+}
+
+footer p {
+    margin-top: 0.5rem;
+}
+
+footer p a {
+    color: var(--light-bg-overlay);
+}
+
+footer p a:hover {
+    text-decoration: none;
+}
+
+@media (min-width: 650px) {
+    :root {
+        --fs-body: 1rem;
+        --fs-logo: 2rem;
+        --fs-filter: 0.8125rem;
+    }
+
+    header {
+        background-size: 100% 100%;
+        padding-top: 65px;
+        padding-bottom: 0px;
+        height: 226px;
+
+    }
+
+    .sub-con {
+        height: 50%;
+        width: 50%;
+        margin: 50px auto;
+    }
+
+    .header-nav .logo {
+        letter-spacing: 0.75rem;
+    }
+
+    .toggle-btn img {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+
+    .form__input {
+        height: 4rem;
+        padding-left: 4rem;
+    }
+
+    .form .add-btn {
+        top: 1.45rem;
+    }
+
+    .list-container ul li,
+    .list-container .status,
+    .list-container .filter-small {
+        min-height: 4rem;
+    }
+
+    li span {
+        padding-left: 1.25rem;
+    }
+
+    .filter-large {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .filter-large button {
+        color: var(--circle-border);
+        background: transparent;
+        font-family: "Josefin Sans", sans-serif;
+        outline: none;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+@media (min-width: 1250px) {
+    :root {
+        --fs-body: 1.125rem;
+        --fs-logo: 2.5rem;
+        --fs-filter: 1rem;
+    }
+
+    header {
+        padding-top: 4rem;
+    }
+
+    header>*,
+    main>* {
+        max-width: 650px;
+        margin: 0 auto;
+    }
+}
